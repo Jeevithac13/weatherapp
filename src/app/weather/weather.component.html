@@ -1,0 +1,78 @@
+
+
+
+   
+
+    
+<h1> Weather Forecast</h1>
+
+<nav class="nav nav-tabs justify-content-center">
+    <ul class="nav">
+        <li class="nav-item"><a [routerLink]="['setting']" class="nav-link"> <h3 >Setting</h3></a></li>
+        <li class="nav-item"><a [routerLink]="['weather']" class="nav-link"> <h3 >Weather</h3></a></li>
+        <!-- <li class="nav-item"> <a [routerLink]="['forecast']" class="nav-link"><h3 >ForeCast</h3></a></li> -->
+    </ul>
+</nav>
+
+
+    
+
+        <div class="bg"></div>
+    
+        <p class="py-5 text-center">.</p>
+    
+    
+<h2><span>Select your city:</span></h2>
+    <select  (change)="selectChangeHandler($event)">
+        <option value="Banglore">Banglore</option>
+        <option value="Chennai">Chennai</option>
+        <option value="New Delhi">New Delhi</option>
+        <option value="Mysore">Mysore</option>
+        <option value="Hyderabad">Hyderabad</option>
+    </select>
+    
+    {{selectedCity}}
+<br>
+
+    <p *ngIf="val">
+        city name : {{weather.name}}<br>
+        Humidity : {{weather.main.humidity}}<br>
+        Pressure : {{weather.main.pressure}}<br>
+        temp : {{ weather.main.temp}}<br>
+        {{weather.icons}}
+
+        <div *ngFor="let forecast of forecast; index as i" class="container">
+            <div class="btn btn-light widd" *ngIf ="i%8==0">
+                Date: {{forecast.dt_txt}}
+                <img class="fr" src="assets/{{forecast.weather[0].icons}}@2x.png">
+              <table class="table-hover">
+               <tr>
+                   <td>Temperature:</td>
+                   <td>{{forecast.main.temp}}</td>
+                   </tr>
+                   <tr>
+                   <td>Status</td>
+                   <td>{{forecast.weather[0].main}}</td>
+                   </tr>
+               <tr>
+                   <td>Humidity</td>
+                   <td>{{forecast.main.humidity}}</td>
+                   </tr>
+                   <tr>
+                   <td>
+                    Pressure
+                   </td>
+                   <td>{{forecast.main.pressure}}
+                   </td>
+               </tr>
+              </table>
+            
+            </div>
+            </div>
+    
+    <p *ngIf ="val2">
+        city name : {{weather.name}}<br>
+        Humidity : {{weather.main.humidity}}<br>
+        Pressure : {{weather.main.pressure}}<br>
+        temp : {{ weather.main.temp}}
+    </p>

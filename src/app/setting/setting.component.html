@@ -1,0 +1,27 @@
+<!-- <p>setting works!</p> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row text-info" style="font-size: 24px;">Saved Location</div>
+            <div class="row" *ngFor="let city of savedCity">{{city}} <span><button (click)="deleteCity(city)" value="X">X</button></span></div>
+        </div>
+       
+        <div class="col">
+            <div class="row"><a (click)="addCity()"><p style="font-size: 24px; color: rgb(128, 128, 247);" class="text-primary">Add Location</p></a></div>
+        
+            <div class="row">
+                <div *ngIf="add">
+                    <input type="text" #cityname>
+                    <button (click)="save(cityname)">Save city</button>
+                </div>
+
+                <div class="row"><a (click)="deleteCity(city)"><p style="font-size: 24px; color: rgb(128, 128, 247);" class="text-primary">Delete Location<br></p></a></div>
+                <div *ngIf="deleteCity">
+                    <input type="text" #city>
+                    <button (click)="deleteCity(city)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
